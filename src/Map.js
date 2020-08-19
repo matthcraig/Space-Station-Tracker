@@ -2,8 +2,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react'
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json"
-const MAP_KEY = process.env.REACT_APP_MAP_KEY
-const img = <img src = "./iss.svg" alt = "iss" height = "30px"/>
+const img = <img alt="iss" src={require("./red-dot.png")} />
 
 const SpaceStation = ({ img }) => <div>{img}</div>
 
@@ -46,15 +45,17 @@ class Map extends React.Component{
                 <p>Longitude: {this.state.center.lng}</p>
                 <div className = "map" style={{ height: '100vh', width: '100%' }}>
                     <GoogleMapReact className = "map"
-                        bootstrapURLKeys={{key: MAP_KEY }}
+                        bootstrapURLKeys={{key: "AIzaSyBV32AyIbM8AooWEm0CWK4-I4nXm8hTeak" }}
                         center={this.state.center}
                         zoom={this.state.zoom}
+                        
                     >
                     <SpaceStation
 
                         lat = {this.state.center.lat}
                         lng = {this.state.center.lng}
                         img = {img}
+                      
                     />
                     </GoogleMapReact>
                 </div>
